@@ -1,0 +1,9 @@
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Abstraction\bin\Debug\Running.Abstraction.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Abstraction\bin\Debug\Running.Abstraction.pdb
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Abstraction\bin\Debug\Core.Abstraction.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Abstraction\bin\Debug\Core.Abstraction.pdb
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Abstraction\obj\Debug\Running.Abstraction.csproj.AssemblyReference.cache
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Abstraction\obj\Debug\Running.Abstraction.csproj.CoreCompileInputs.cache
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Abstraction\obj\Debug\Running..F45BEC58.Up2Date
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Abstraction\obj\Debug\Running.Abstraction.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Abstraction\obj\Debug\Running.Abstraction.pdb

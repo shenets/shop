@@ -1,0 +1,6 @@
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Abstraction\bin\Debug\Core.Abstraction.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Abstraction\bin\Debug\Core.Abstraction.pdb
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Abstraction\obj\Debug\Core.Abstraction.csproj.AssemblyReference.cache
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Abstraction\obj\Debug\Core.Abstraction.csproj.CoreCompileInputs.cache
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Abstraction\obj\Debug\Core.Abstraction.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Abstraction\obj\Debug\Core.Abstraction.pdb

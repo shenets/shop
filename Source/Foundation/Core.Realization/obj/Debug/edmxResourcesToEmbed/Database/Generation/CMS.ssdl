@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Storage.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="StorageStoreContainer">
+    <EntitySet Name="Product" EntityType="Storage.Store.Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Shop" EntityType="Storage.Store.Shop" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShopName" EntityType="Storage.Store.ShopName" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShopProduct" EntityType="Storage.Store.ShopProduct" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="Reference_Shop_ShopNameId" Association="Storage.Store.Reference_Shop_ShopNameId">
+      <End Role="ShopName" EntitySet="ShopName" />
+      <End Role="Shop" EntitySet="Shop" />
+    </AssociationSet>
+    <AssociationSet Name="Reference_ShopProduct_ProductId" Association="Storage.Store.Reference_ShopProduct_ProductId">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ShopProduct" EntitySet="ShopProduct" />
+    </AssociationSet>
+    <AssociationSet Name="Reference_ShopProduct_ShopId" Association="Storage.Store.Reference_ShopProduct_ShopId">
+      <End Role="Shop" EntitySet="Shop" />
+      <End Role="ShopProduct" EntitySet="ShopProduct" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShopNameId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="Shedule" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShopName">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShopProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ShopId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="text" />
+  </EntityType>
+  <Association Name="Reference_Shop_ShopNameId">
+    <End Role="ShopName" Type="Storage.Store.ShopName" Multiplicity="1" />
+    <End Role="Shop" Type="Storage.Store.Shop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShopName">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shop">
+        <PropertyRef Name="ShopNameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Reference_ShopProduct_ProductId">
+    <End Role="Product" Type="Storage.Store.Product" Multiplicity="1" />
+    <End Role="ShopProduct" Type="Storage.Store.ShopProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShopProduct">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Reference_ShopProduct_ShopId">
+    <End Role="Shop" Type="Storage.Store.Shop" Multiplicity="1" />
+    <End Role="ShopProduct" Type="Storage.Store.ShopProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shop">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShopProduct">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

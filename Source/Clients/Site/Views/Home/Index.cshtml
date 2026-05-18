@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Site.Models.Shop>
+
+@{
+    ViewBag.Title = "Магазины";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Application/Home/Index.js"></script>
+}
+
+<div>
+    <h3>Список магазинов</h3>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shedule)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.Raw(item.Address)
+                </td>
+                <td>
+                    @Html.Raw(item.Shedule)
+                </td>
+                <td>
+                    <a href="#" data-bind="click: clickLoad.bind($data, @item.Id)">Продукты</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div data-bind="visible: products().length > 0">
+    <h3>Список продуктов</h3>
+
+    <table class="table">
+        <tr>
+            <th data-bind="text: 'Наименование'" />
+            <th data-bind="text: 'Описание'" />
+        </tr>
+
+        <!-- ko foreach: products -->
+        <tr>
+            <td data-bind="text: $data.name" />
+            <td data-bind="text: $data.description" />
+        </tr>
+        <!-- /ko -->
+
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var view = new Home.Index();
+        
+        ko.applyBindings(view);
+    });
+</script>

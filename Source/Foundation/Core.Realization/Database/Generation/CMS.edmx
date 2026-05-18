@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Storage.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="StorageStoreContainer">
+          <EntitySet Name="Product" EntityType="Storage.Store.Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Shop" EntityType="Storage.Store.Shop" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShopName" EntityType="Storage.Store.ShopName" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShopProduct" EntityType="Storage.Store.ShopProduct" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="Reference_Shop_ShopNameId" Association="Storage.Store.Reference_Shop_ShopNameId">
+            <End Role="ShopName" EntitySet="ShopName" />
+            <End Role="Shop" EntitySet="Shop" />
+          </AssociationSet>
+          <AssociationSet Name="Reference_ShopProduct_ProductId" Association="Storage.Store.Reference_ShopProduct_ProductId">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ShopProduct" EntitySet="ShopProduct" />
+          </AssociationSet>
+          <AssociationSet Name="Reference_ShopProduct_ShopId" Association="Storage.Store.Reference_ShopProduct_ShopId">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="ShopProduct" EntitySet="ShopProduct" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ShopNameId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="Shedule" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShopName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShopProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ShopId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <Association Name="Reference_Shop_ShopNameId">
+          <End Role="ShopName" Type="Storage.Store.ShopName" Multiplicity="1" />
+          <End Role="Shop" Type="Storage.Store.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="ShopNameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reference_ShopProduct_ProductId">
+          <End Role="Product" Type="Storage.Store.Product" Multiplicity="1" />
+          <End Role="ShopProduct" Type="Storage.Store.ShopProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShopProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reference_ShopProduct_ShopId">
+          <End Role="Shop" Type="Storage.Store.Shop" Multiplicity="1" />
+          <End Role="ShopProduct" Type="Storage.Store.ShopProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShopProduct">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CMS" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Storage" p1:LazyLoadingEnabled="true" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <EntitySet Name="Products" EntityType="CMS.Product" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="Shops" EntityType="CMS.Shop" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="ShopNames" EntityType="CMS.ShopName" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <EntitySet Name="ShopProducts" EntityType="CMS.ShopProduct" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <AssociationSet Name="Reference_ShopProduct_ProductId" Association="CMS.Reference_ShopProduct_ProductId">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ShopProduct" EntitySet="ShopProducts" />
+          </AssociationSet>
+          <AssociationSet Name="Reference_Shop_ShopNameId" Association="CMS.Reference_Shop_ShopNameId">
+            <End Role="ShopName" EntitySet="ShopNames" />
+            <End Role="Shop" EntitySet="Shops" />
+          </AssociationSet>
+          <AssociationSet Name="Reference_ShopProduct_ShopId" Association="CMS.Reference_ShopProduct_ShopId">
+            <End Role="Shop" EntitySet="Shops" />
+            <End Role="ShopProduct" EntitySet="ShopProducts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Product" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ShopProducts" Relationship="CMS.Reference_ShopProduct_ProductId" FromRole="Product" ToRole="ShopProduct" />
+        </EntityType>
+        <EntityType Name="Shop" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ShopNameId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Shedule" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ShopName" Relationship="CMS.Reference_Shop_ShopNameId" FromRole="Shop" ToRole="ShopName" />
+          <NavigationProperty Name="ShopProducts" Relationship="CMS.Reference_ShopProduct_ShopId" FromRole="Shop" ToRole="ShopProduct" />
+        </EntityType>
+        <EntityType Name="ShopName" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Shops" Relationship="CMS.Reference_Shop_ShopNameId" FromRole="ShopName" ToRole="Shop" />
+        </EntityType>
+        <EntityType Name="ShopProduct" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ShopId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Product" Relationship="CMS.Reference_ShopProduct_ProductId" FromRole="ShopProduct" ToRole="Product" />
+          <NavigationProperty Name="Shop" Relationship="CMS.Reference_ShopProduct_ShopId" FromRole="ShopProduct" ToRole="Shop" />
+        </EntityType>
+        <Association Name="Reference_ShopProduct_ProductId">
+          <End Role="Product" Type="CMS.Product" Multiplicity="1" />
+          <End Role="ShopProduct" Type="CMS.ShopProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShopProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reference_Shop_ShopNameId">
+          <End Role="ShopName" Type="CMS.ShopName" Multiplicity="1" />
+          <End Role="Shop" Type="CMS.Shop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="ShopNameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reference_ShopProduct_ShopId">
+          <End Role="Shop" Type="CMS.Shop" Multiplicity="1" />
+          <End Role="ShopProduct" Type="CMS.ShopProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShopProduct">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StorageStoreContainer" CdmEntityContainer="Storage">
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="CMS.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shops">
+            <EntityTypeMapping TypeName="CMS.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShopNameId" ColumnName="ShopNameId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Shedule" ColumnName="Shedule" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopNames">
+            <EntityTypeMapping TypeName="CMS.ShopName">
+              <MappingFragment StoreEntitySet="ShopName">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopProducts">
+            <EntityTypeMapping TypeName="CMS.ShopProduct">
+              <MappingFragment StoreEntitySet="ShopProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

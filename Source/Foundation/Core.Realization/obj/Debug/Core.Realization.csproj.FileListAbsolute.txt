@@ -1,0 +1,14 @@
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\bin\Debug\Core.Realization.dll.config
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\bin\Debug\Core.Realization.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\bin\Debug\Core.Realization.pdb
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\bin\Debug\Core.Abstraction.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\bin\Debug\EntityFramework.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\bin\Debug\EntityFramework.SqlServer.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\bin\Debug\Core.Abstraction.pdb
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\bin\Debug\EntityFramework.xml
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\bin\Debug\EntityFramework.SqlServer.xml
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\obj\Debug\Core.Realization.csproj.AssemblyReference.cache
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\obj\Debug\Core.Realization.csproj.CoreCompileInputs.cache
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\obj\Debug\Core.Rea.F221B513.Up2Date
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\obj\Debug\Core.Realization.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Core.Realization\obj\Debug\Core.Realization.pdb

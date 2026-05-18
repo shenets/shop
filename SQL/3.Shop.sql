@@ -1,0 +1,37 @@
+USE [CMS]
+GO
+
+/****** Object:  Table [dbo].[Shop]    Script Date: 04/11/2017 13:00:13 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Shop](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ShopNameId] [int] NOT NULL,
+	[Address] [varchar](max) NOT NULL,
+	[Shedule] [varchar](max) NOT NULL,
+ CONSTRAINT [PK_Shop] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[Shop]  WITH CHECK ADD  CONSTRAINT [Reference_Shop_ShopNameId] FOREIGN KEY([ShopNameId])
+REFERENCES [dbo].[ShopName] ([Id])
+GO
+
+ALTER TABLE [dbo].[Shop] CHECK CONSTRAINT [Reference_Shop_ShopNameId]
+GO
+
+

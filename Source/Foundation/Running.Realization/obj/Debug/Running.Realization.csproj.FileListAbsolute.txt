@@ -1,0 +1,16 @@
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\Running.Realization.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\Running.Realization.pdb
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\Core.Abstraction.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\Core.Realization.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\Running.Abstraction.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\EntityFramework.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\Core.Abstraction.pdb
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\Core.Realization.pdb
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\Core.Realization.dll.config
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\Running.Abstraction.pdb
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\bin\Debug\EntityFramework.xml
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\obj\Debug\Running.Realization.csproj.AssemblyReference.cache
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\obj\Debug\Running.Realization.csproj.CoreCompileInputs.cache
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\obj\Debug\Running..26A4622A.Up2Date
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\obj\Debug\Running.Realization.dll
+G:\_Projects\_Apps\CMS\Source\Foundation\Running.Realization\obj\Debug\Running.Realization.pdb
